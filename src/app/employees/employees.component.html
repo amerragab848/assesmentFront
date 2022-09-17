@@ -1,1 +1,32 @@
-<p>employees works!</p>
+<div class="container" style="margin-top: 20px;">
+    <p-table [value]="employeeList" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        [rowsPerPageOptions]="[10,25,50]">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Department Name</th>
+                <th>Salary</th>
+            
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-user>
+            <tr [ngClass]="{'inActive':  false}">
+                <td>{{user.firstName}}</td>
+                <td>{{user.lastName}}</td>
+                <td>{{user.departmentName}}</td>
+                <td>{{user.salary}}</td>
+                <td>
+                    <a pButton pRipple type="button" routerLink="update-employee/{{user.id}}"  icon="pi pi-user-edit"
+                        class="p-button-rounded"></a>
+                    <a pButton pRipple type="button" (click)="remove(user.id)" style="margin-left: 5px;"
+                        icon="pi pi-trash" class="p-button-rounded"></a>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="paginatorleft">
+            <a routerLink="add-employee"  class="btn btn-primary">Add New</a>
+        </ng-template>
+    </p-table>
+</div>

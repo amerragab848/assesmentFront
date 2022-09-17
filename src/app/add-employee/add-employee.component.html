@@ -1,0 +1,63 @@
+<div class="container">
+    <form [formGroup]="userform" autocomplete="off">
+
+        <div class="mb-1">
+            <label for="firstName" class="form-label">First Name</label>
+            <div class="input-group has-validation">
+                <input type="text" #firstName [ngClass]="{'form-control': true, 'is-invalid': userform.get('firstName')?.invalid &&
+                (userform.get('firstName')?.dirty || userform.get('firstName')?.touched)}" id="firstName" name="firstName"
+                    formControlName="firstName" placeholder="First Name">
+                <div class="invalid-feedback">
+                    This field is required.
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-1">
+            <label for="lastName" class="form-label">Last Name</label>
+            <div class="input-group has-validation">
+                <input type="text" #lastName [ngClass]="{'form-control': true, 'is-invalid': userform.get('lastName')?.invalid &&
+                (userform.get('lastName')?.dirty || userform.get('lastName')?.touched)}" id="lastName" name="lastName"
+                    formControlName="lastName" placeholder="Last Name">
+                <div class="invalid-feedback">
+                    This field is required.
+                </div>
+            </div>
+        </div>
+      
+        <div class="mb-1">
+            <label for="departmentName" class="form-label">Department Name</label>
+            <div class="input-group has-validation">
+                <input type="text" #departmentName [ngClass]="{'form-control': true, 'is-invalid': userform.get('departmentName')?.invalid &&
+                (userform.get('departmentName')?.dirty || userform.get('departmentName')?.touched)}" id="departmentName" name="departmentName"
+                    formControlName="departmentName" placeholder="Department Name">
+                <div class="invalid-feedback">
+                    This field is required.
+                </div>
+            </div>
+        </div>
+    
+        <div class="mb-1">
+            <label for="salary" class="form-label">salary</label>
+            <div class="input-group has-validation">
+                <input type="text" #salary [ngClass]="{'form-control': true, 'is-invalid': userform.get('salary')?.invalid &&
+                (userform.get('salary')?.dirty || userform.get('salary')?.touched)}" id="salary" name="salary"
+                    formControlName="salary" placeholder="salary">
+                <div class="invalid-feedback">
+                    This field is required.
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="mb-1">
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button (click)="save()" [disabled]="userform.invalid" class="btn btn-primary" type="button">
+                    {{id==0 || id==null ?'Save':'Update'}}</button>
+                <button class="btn btn-secondary" type="button">Reset </button>
+            </div>
+        </div>
+
+       
+    </form>
+</div>
